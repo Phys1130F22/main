@@ -1,0 +1,316 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12583,        308]
+NotebookOptionsPosition[     10400,        264]
+NotebookOutlinePosition[     10852,        281]
+CellTagsIndexPosition[     10809,        278]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Import/Export", "Title",
+ CellChangeTimes->{{3.810229680033916*^9, 3.810229684130601*^9}, {
+   3.8102297192572765`*^9, 3.810229757553118*^9}, {3.8102298338241987`*^9, 
+   3.810229834980671*^9}, 3.810230119422834*^9, {3.810243369730039*^9, 
+   3.8102434084648705`*^9}},ExpressionUUID->"c0737371-5448-4a70-a74c-\
+543ab540677c"],
+
+Cell["\<\
+Importing and Exporting tabular data in Mathematica is simple; there are only \
+2 main functions to remember: Import and Export. Mathematica will read the \
+data into a list, which can be cumbersome to use. Personally, I don\
+\[CloseCurlyQuote]t use Mathematica to process large amounts of data, but it \
+is a clean and efficient way to process simple data quickly.
+The examples below use the exoplanet data from NASA\
+\>", "Text",
+ CellChangeTimes->{{3.810229680033916*^9, 3.810229684130601*^9}, {
+   3.8102297192572765`*^9, 3.810229757553118*^9}, {3.8102298338241987`*^9, 
+   3.810229834980671*^9}, 3.810230119422834*^9, {3.810243369730039*^9, 
+   3.8102433936775017`*^9}, {3.810243449447615*^9, 3.810243668916705*^9}, {
+   3.810245352288979*^9, 
+   3.8102453625483427`*^9}},ExpressionUUID->"19a1835b-aae1-45bf-aab4-\
+5c1a25245c6a"],
+
+Cell[CellGroupData[{
+
+Cell["Import", "Section",
+ CellChangeTimes->{{3.810229680033916*^9, 3.810229684130601*^9}, {
+   3.8102297192572765`*^9, 3.810229757553118*^9}, {3.8102298338241987`*^9, 
+   3.810229834980671*^9}, 3.810230119422834*^9, {3.810243369730039*^9, 
+   3.8102433936775017`*^9}, {3.810243449447615*^9, 3.810243668916705*^9}, {
+   3.810245352288979*^9, 
+   3.810245372803857*^9}},ExpressionUUID->"8d201116-a471-4b9a-a029-\
+1cb589d9457b"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Import recognizes files by an ",
+ StyleBox["absolute path",
+  FontSlant->"Italic"],
+ ", meaning the complete path down from the C drive. The below command will \
+not run on your computer, you must change the string inside Import"
+}], "Item",
+ CellChangeTimes->{{3.810229680033916*^9, 3.810229684130601*^9}, {
+   3.8102297192572765`*^9, 3.810229757553118*^9}, {3.8102298338241987`*^9, 
+   3.810229834980671*^9}, 3.810230119422834*^9, {3.810243369730039*^9, 
+   3.8102433936775017`*^9}, 3.810243449447615*^9, {3.8102436798043504`*^9, 
+   3.810243703883067*^9}, {3.810243774748907*^9, 3.8102438623721523`*^9}, {
+   3.810245379566249*^9, 
+   3.810245380508816*^9}},ExpressionUUID->"bf7311d3-7c26-41b5-b5dc-\
+6ec5dc59fa88"],
+
+Cell[BoxData[
+ RowBox[{"exo", " ", "=", " ", 
+  RowBox[{
+  "Import", "[", 
+   "\"\<C:\\\\Users\\\\Tom K\\\\Google \
+Drive\\\\Programs\\\\courses\\\\Computing\\\\main\\\\data\\\\exoplanetsclean.\
+csv\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.810229680033916*^9, 3.810229684130601*^9}, {
+   3.8102297192572765`*^9, 3.810229757553118*^9}, {3.8102298338241987`*^9, 
+   3.810229834980671*^9}, 3.810230119422834*^9, {3.810243369730039*^9, 
+   3.8102433936775017`*^9}, 3.810243449447615*^9, {3.8102436798043504`*^9, 
+   3.810243681904382*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"4d4e817d-dad2-4e0e-9738-18c417ee54b6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+You can use some built in functions to specify a path relative to your \
+notebook\
+\>", "Item",
+ CellChangeTimes->{{3.8102298402930837`*^9, 3.8102298498393955`*^9}, {
+  3.81024387578839*^9, 3.8102439156647835`*^9}},
+ NumberMarks->False,ExpressionUUID->"0ef8bcf5-c447-4c9b-bab9-86c933031536"],
+
+Cell[BoxData[{
+ RowBox[{"NotebookDirectory", "[", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ParentDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.8102298402930837`*^9, 3.8102298498393955`*^9}, {
+  3.81024387578839*^9, 3.8102438778935857`*^9}, {3.810243940361575*^9, 
+  3.810244030019989*^9}},
+ NumberMarks->False,
+ CellLabel->"In[2]:=",ExpressionUUID->"d3577e0f-25b2-4105-8ad6-25315254eabe"]
+}, Open  ]],
+
+Cell[TextData[{
+ "As long as you can construct the path to the desired file, you can import \
+the data. The following command should run if you left the ",
+ StyleBox["main",
+  FontSlant->"Italic"],
+ " repository unaltered"
+}], "Text",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.8102442285773077`*^9}, {3.810244415765492*^9, 
+  3.810244461599862*^9}},ExpressionUUID->"608f3ec3-5e2c-4ba7-8fcc-\
+7c67720204fd"],
+
+Cell[BoxData[{
+ RowBox[{"FileNameJoin", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ParentDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", "\"\<data\>\"", 
+    ",", "\"\<exoplanetclean.csv\>\""}], "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"exo2", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ParentDirectory", "[", 
+       RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", "\"\<data\>\"", 
+      ",", "\"\<exoplanetsclean.csv\>\""}], "}"}], "]"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.8102444210845137`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"57080b54-5e9f-4936-ab19-483ea839ef70"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+You can then access the data like any other list in Mathematica\
+\>", "Item",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.810244180255857*^9}, {3.8102444011948385`*^9, 
+  3.8102444027876415`*^9}, {3.810244477187364*^9, 
+  3.8102444982095613`*^9}},ExpressionUUID->"029229f2-9f58-4f20-bef8-\
+00774939035d"],
+
+Cell[BoxData[{
+ RowBox[{"rows", " ", "=", " ", 
+  RowBox[{"Length", "[", "exo2", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"header", " ", "=", " ", 
+  RowBox[{"First", "[", "exo2", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"header", "[", 
+  RowBox[{"[", "1", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"col", " ", "=", " ", 
+  RowBox[{"Length", "[", "header", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"exo2", "[", 
+  RowBox[{"[", 
+   RowBox[{"100", ",", "1"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"exo2", "[", 
+  RowBox[{"[", 
+   RowBox[{"100", ",", 
+    RowBox[{"1", ";;", 
+     RowBox[{"col", "-", "1"}]}]}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"exo2", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"2", ";;", "5"}], ",", 
+    RowBox[{"1", ";;", 
+     RowBox[{"col", "-", "1"}]}]}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"AppendTo", "[", 
+  RowBox[{"exo2", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Vulcan\>\"", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+     "1", ",", "\"\<Primary Transit\>\"", ",", "2063"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+   3.810244171315713*^9, 3.810244180255857*^9}, {3.8102444011948385`*^9, 
+   3.8102444027876415`*^9}, {3.810244477187364*^9, 3.8102450005720205`*^9}, {
+   3.81024503102504*^9, 3.8102450387017994`*^9}, {3.810245181312322*^9, 
+   3.810245197645525*^9}, 3.8102457217909765`*^9, {3.810245849309662*^9, 
+   3.810245862408122*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"00455d22-4b70-4c4a-9a62-919044e92020"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Export", "Section",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.810244180255857*^9}, {3.8102444011948385`*^9, 
+  3.8102444027876415`*^9}, {3.810244477187364*^9, 3.8102445069512615`*^9}, {
+  3.810245330790455*^9, 3.8102453364587545`*^9}, {3.8102453988114443`*^9, 
+  3.810245405882222*^9}},ExpressionUUID->"f19f869d-ab68-4355-a459-\
+07343365f034"],
+
+Cell[TextData[{
+ "You can export any list to a file of your choice. The example below exports \
+the file list ",
+ StyleBox["exo2",
+  FontSlant->"Italic"],
+ " out to a file named ",
+ StyleBox["newexo.txt",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.810244180255857*^9}, {3.8102444011948385`*^9, 
+  3.8102444027876415`*^9}, {3.810244477187364*^9, 3.8102445069512615`*^9}, {
+  3.810245330790455*^9, 3.8102453364587545`*^9}, {3.8102453988114443`*^9, 
+  3.8102454725228815`*^9}},ExpressionUUID->"876771a9-01ea-4af5-b62c-\
+6ddafd152fc2"],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<newexo.txt\>\"", ",", " ", "exo2", ",", " ", "\"\<Table\>\""}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.8102299272914543`*^9, 3.810229946957325*^9}, {
+  3.810244171315713*^9, 3.810244180255857*^9}, {3.8102444011948385`*^9, 
+  3.8102444027876415`*^9}, {3.810245488677746*^9, 3.8102454957302914`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"a8b99eac-9e40-49c3-aa74-b843e8400475"],
+
+Cell[TextData[{
+ "Where is the file though? Well, Mathematica exports it to the Directory \
+given by ",
+ StyleBox["Directory[]",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.8102300759090366`*^9, 3.8102300782904606`*^9}, {
+  3.810245504384017*^9, 
+  3.8102455545930758`*^9}},ExpressionUUID->"cebf3593-154c-487d-8fd6-\
+ddc4aef97e0e"],
+
+Cell[BoxData[
+ RowBox[{"Directory", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.8102300759090366`*^9, 3.8102300782904606`*^9}, {
+  3.810245504384017*^9, 
+  3.810245507431416*^9}},ExpressionUUID->"6dc52d74-9d6c-4fde-898f-\
+1de52a2795d6"],
+
+Cell[TextData[{
+ "You can change this directory if you like, using ",
+ StyleBox["SetDirectory[]",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.810230146851359*^9, 3.810230167176397*^9}, {
+  3.810230306537825*^9, 3.8102303075382814`*^9}, {3.810245563190874*^9, 
+  3.8102455773440533`*^9}, {3.8102456182469225`*^9, 
+  3.8102456230236545`*^9}},ExpressionUUID->"6dee8b27-9542-431a-a975-\
+e8df1fde5b9f"],
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input", "Input",
+ CellChangeTimes->{{3.8102456249432497`*^9, 3.8102456404253607`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"25ed3018-9adc-4b9e-ab80-e9ab5ae8c9a0"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{573.9, 422.09999999999997`},
+WindowMargins->{{Automatic, 55.200000000000045`}, {
+  14.700000000000045`, Automatic}},
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (May 11, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fcacca14-8626-4556-b47f-d52fd1f24383"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 331, 5, 98, "Title",ExpressionUUID->"c0737371-5448-4a70-a74c-543ab540677c"],
+Cell[914, 29, 844, 14, 150, "Text",ExpressionUUID->"19a1835b-aae1-45bf-aab4-5c1a25245c6a"],
+Cell[CellGroupData[{
+Cell[1783, 47, 426, 7, 67, "Section",ExpressionUUID->"8d201116-a471-4b9a-a029-1cb589d9457b"],
+Cell[CellGroupData[{
+Cell[2234, 58, 736, 14, 74, "Item",ExpressionUUID->"bf7311d3-7c26-41b5-b5dc-6ec5dc59fa88"],
+Cell[2973, 74, 619, 12, 105, "Input",ExpressionUUID->"4d4e817d-dad2-4e0e-9738-18c417ee54b6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3629, 91, 301, 6, 53, "Item",ExpressionUUID->"0ef8bcf5-c447-4c9b-bab9-86c933031536"],
+Cell[3933, 99, 443, 8, 48, "Input",ExpressionUUID->"d3577e0f-25b2-4105-8ad6-25315254eabe"]
+}, Open  ]],
+Cell[4391, 110, 459, 10, 81, "Text",ExpressionUUID->"608f3ec3-5e2c-4ba7-8fcc-7c67720204fd"],
+Cell[4853, 122, 779, 17, 124, "Input",ExpressionUUID->"57080b54-5e9f-4936-ab19-483ea839ef70"],
+Cell[CellGroupData[{
+Cell[5657, 143, 365, 7, 32, "Item",ExpressionUUID->"029229f2-9f58-4f20-bef8-00774939035d"],
+Cell[6025, 152, 1574, 36, 181, "Input",ExpressionUUID->"00455d22-4b70-4c4a-9a62-919044e92020"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7648, 194, 402, 6, 67, "Section",ExpressionUUID->"f19f869d-ab68-4355-a459-07343365f034"],
+Cell[8053, 202, 618, 14, 58, "Text",ExpressionUUID->"876771a9-01ea-4af5-b62c-6ddafd152fc2"],
+Cell[8674, 218, 434, 7, 28, "Input",ExpressionUUID->"a8b99eac-9e40-49c3-aa74-b843e8400475"],
+Cell[9111, 227, 344, 9, 58, "Text",ExpressionUUID->"cebf3593-154c-487d-8fd6-ddc4aef97e0e"],
+Cell[9458, 238, 236, 5, 28, "Input",ExpressionUUID->"6dc52d74-9d6c-4fde-898f-1de52a2795d6"],
+Cell[9697, 245, 410, 9, 35, "Text",ExpressionUUID->"6dee8b27-9542-431a-a975-e8df1fde5b9f"],
+Cell[10110, 256, 262, 4, 28, "Input",ExpressionUUID->"25ed3018-9adc-4b9e-ab80-e9ab5ae8c9a0"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
